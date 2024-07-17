@@ -10,7 +10,8 @@ O projeto consistiu em desenvolver um CRUD utilizando as tecnologias Node.js + E
 - Node.JS
 - Express
 - MongoDB - Banco de dados
-- Atlas - Banco na nuvem 
+- Atlas - Banco na nuvem
+- dotenv
 
 ## Iniciar Projeto
 
@@ -76,3 +77,4 @@ POST - localhost:3000/livros/
 PUT - localhost:3000/livros/(adicione o ID do livro)
 
 DELETE - localhost:3000/livros/(adicione o ID do livro)
+
