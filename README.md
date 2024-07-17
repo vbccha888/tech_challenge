@@ -1,10 +1,10 @@
 # tech_challenge - Fase 02
 
-# Objetivo:
+## Objetivo
 
-O projeto consistiu em desenvolver um CRUD utilizando as tecnologias Node.js + Express para criação de uma API e um banco de dados NoSQL utilizando o banco de dados MongoDB através da platafomra Atlas. o Atlas permitiu criar, configurar e operar o banco de dados na nuvem. 
+O projeto consistiu em desenvolver um CRUD utilizando as tecnologias Node.js + Express para criação de uma API e um banco de dados NoSQL utilizando o banco de dados MongoDB através da platafomra Atlas. o Atlas permitiu criar, configurar e operar o banco de dados na nuvem.
 
-# Ferramentas Utilizadas:
+## Ferramentas Utilizadas
 
 - Visual Studio Code - Editor escolhido 
 - Node.JS
@@ -12,7 +12,7 @@ O projeto consistiu em desenvolver um CRUD utilizando as tecnologias Node.js + E
 - MongoDB - Banco de dados
 - Atlas - Banco na nuvem 
 
-# Iniciar Projeto:
+## Iniciar Projeto
 
 # 1º Passo
 É necessário a instalação do Node.js caso não esteja previamente instalado na máquina, atraves do comando: 
@@ -42,11 +42,24 @@ Instale a biblioteca do mongodb para manipular o banco de dados e API através d
 npm install mongodb
 
 # 4º Passo
+Instale a biblioteca do express:
+
+npm express
+
+# 5º Passo 
 Instale a biblioteca do mangoose para trabalharmos a conexão com o banco na nuvem: 
 
 npm install mongoose --save
 
-# Manipulação de dados: 
+
+# 6º Passo 
+
+Instale a biblioteca do dotenv 
+
+npm install dotenv 
+
+
+# Manipulação de dados
 
 A porta utilizada no código é a 3000. 
 
@@ -63,6 +76,3 @@ POST - localhost:3000/livros/
 PUT - localhost:3000/livros/(adicione o ID do livro)
 
 DELETE - localhost:3000/livros/(adicione o ID do livro)
-
-
-
