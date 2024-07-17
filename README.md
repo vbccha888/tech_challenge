@@ -77,4 +77,3 @@ POST - localhost:3000/livros/
 PUT - localhost:3000/livros/(adicione o ID do livro)
 
 DELETE - localhost:3000/livros/(adicione o ID do livro)
-
