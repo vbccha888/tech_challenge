@@ -2,6 +2,7 @@ import livro from "../models/livros.js";
 
 class LivroController {
 
+    //Lista todos os livros - GET
     static async listarLivros(req, res){
         try{
             const listaLivros = await livro.find({});
@@ -11,6 +12,7 @@ class LivroController {
         }
     };
 
+    //Lista livro por ID - GET
     static async listarLivroPorId(req, res){
         try{
             const id = req.params.id
@@ -21,7 +23,7 @@ class LivroController {
         }
     };
 
-
+    //Cadastra novo livro - POST
     static async cadastrarLivro (req, res){
         try{
             const novoLivro = await livro.create(req.body);    
@@ -31,7 +33,8 @@ class LivroController {
             res.status(500).json({ message: `${erro.message} - falha ao cadastrar livro` });
         }
     };
-        
+    
+    //Atualiza livro - PUT
     static async atualizarLivro(req, res){
         try{
             const id = req.params.id
@@ -42,6 +45,7 @@ class LivroController {
             }
         };
 
+    //Exclui livro - DELETE
     static async excluirLivro(req, res){
         try{
             const id = req.params.id;
@@ -52,10 +56,7 @@ class LivroController {
             }
         };    
 
-
-
     };
-
 
 export default LivroController; 
 
