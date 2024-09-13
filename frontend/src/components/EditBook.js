@@ -31,9 +31,9 @@ function EditBook() {
   };
 
   return (
-    <div>
-      <h2>Editar Livro</h2>
-      {message && <p className="text-info">{message}</p>}
+    <div className="container mt-5">
+      <h2 className="text-center mb-4">Editar Livro</h2>
+      {message && <p className="text-info text-center">{message}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Título</label>
@@ -42,6 +42,7 @@ function EditBook() {
             className="form-control"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
+            placeholder="Digite o título do livro"
           />
         </div>
         <div className="form-group">
@@ -51,9 +52,10 @@ function EditBook() {
             className="form-control"
             value={autor}
             onChange={(e) => setAutor(e.target.value)}
+            placeholder="Digite o nome do autor"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary btn-block">
           Atualizar
         </button>
       </form>

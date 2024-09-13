@@ -20,9 +20,9 @@ function BookForm() {
   };
 
   return (
-    <div>
-      <h2>Adicionar Novo Livro</h2>
-      {message && <p className="text-info">{message}</p>}
+    <div className="container mt-5">
+      <h2 className="text-center mb-4">Adicionar Novo Livro</h2>
+      {message && <p className="text-info text-center">{message}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Título</label>
@@ -31,6 +31,7 @@ function BookForm() {
             className="form-control"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
+            placeholder="Digite o título do livro"
           />
         </div>
         <div className="form-group">
@@ -40,9 +41,10 @@ function BookForm() {
             className="form-control"
             value={autor}
             onChange={(e) => setAutor(e.target.value)}
+            placeholder="Digite o nome do autor"
           />
         </div>
-        <button type="submit" className="btn btn-success">
+        <button type="submit" className="btn btn-success btn-block">
           Adicionar
         </button>
       </form>
