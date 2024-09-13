@@ -1,38 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import axios from '../services/api';
 
-function EditBook() {
-  const { id } = useParams();
+function BookForm() {
   const [titulo, setTitulo] = useState('');
   const [autor, setAutor] = useState('');
-  const [message, setMessage] = useState(null);
-
-  useEffect(() => {
-    axios.get(`/livros/${id}`)
-      .then((response) => {
-        setTitulo(response.data.titulo);
-        setAutor(response.data.autor);
-      })
-      .catch((err) => {
-        setMessage('Erro ao buscar o livro: ' + err.message);
-      });
-  }, [id]);
+  const [message, setMessage] = useState(null);  // Para mensagens de sucesso ou erro
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`/livros/${id}`, { titulo, autor })
+    axios.post('/livros', { titulo, autor })
       .then(() => {
-        setMessage('Livro atualizado com sucesso!');
+        setMessage('Livro adicionado com sucesso!');
+        setTitulo('');
+        setAutor('');
       })
       .catch((err) => {
-        setMessage('Erro ao atualizar o livro: ' + err.message);
+        setMessage('Erro ao adicionar o livro: ' + err.message);
       });
   };
 
   return (
     <div>
-      <h2>Editar Livro</h2>
+      <h2>Adicionar Novo Livro</h2>
       {message && <p className="text-info">{message}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -53,12 +42,12 @@ function EditBook() {
             onChange={(e) => setAutor(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Atualizar
+        <button type="submit" className="btn btn-success">
+          Adicionar
         </button>
       </form>
     </div>
   );
 }
 
-export default EditBook;
+export default BookForm;

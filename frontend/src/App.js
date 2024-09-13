@@ -1,49 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Certifique-se de que tudo está importado corretamente
-import HomePage from './components/HomePage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home';
 import BookList from './components/BookList';
-import AddBook from './components/AddBook';
+import BookForm from './components/BookForm';
 import EditBook from './components/EditBook';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <div>
-        {/* Menu de navegação */}
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
-            <Link className="navbar-brand" to="/">Gerenciamento de Livros</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/books">Listagem de Livros</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/add">Adicionar Novo Livro</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-        {/* Definindo as rotas */}
+      <Header />
+      <div className="container mt-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/books" element={<BookList />} />
-          <Route path="/add" element={<AddBook />} />
-          <Route path="/edit/:id" element={<EditBook />} />
+          <Route path="/add-book" element={<BookForm />} />
+          <Route path="/edit-book/:id" element={<EditBook />} />
         </Routes>
       </div>
     </Router>
   );
-};
+}
 
 export default App;
 

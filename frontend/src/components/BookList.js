@@ -1,61 +1,67 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getBooks, deleteBook } from '../services/bookService';
+import axios from '../services/api';
 
-const BookList = () => {
+function BookList() {
   const [books, setBooks] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    loadBooks();
+    axios.get('/livros')
+      .then((response) => {
+        setBooks(response.data);
+      })
+      .catch((err) => {
+        setError('Erro ao buscar a lista de livros: ' + err.message);
+      });
   }, []);
 
-  const loadBooks = async () => {
-    const response = await getBooks();
-    setBooks(response.data);
-  };
-
-  const handleDelete = async (id) => {
-    await deleteBook(id);
-    loadBooks(); // Recarrega a lista após deletar
+  const deleteBook = (id) => {
+    axios.delete(`/livros/${id}`)
+      .then(() => {
+        setBooks(books.filter((book) => book._id !== id));
+      })
+      .catch((err) => {
+        setError('Erro ao deletar o livro: ' + err.message);
+      });
   };
 
   return (
-    <div className="container">
-      <h1 className="mt-5">Lista de Livros</h1>
-      <Link to="/add" className="btn btn-primary mb-3">Adicionar Novo Livro</Link>
-      <table className="table table-bordered">
-        <thead>
+    <div className="container mt-5">
+      <h2 className="text-center mb-4">Lista de Livros</h2>
+      {error && <p className="text-danger text-center">{error}</p>}
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
           <tr>
+            <th>ID</th>
             <th>Título</th>
             <th>Autor</th>
-            <th>Ações</th>
+            <th className="text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
-          {books.length > 0 ? (
-            books.map(book => (
-              <tr key={book._id}>
-                <td>{book.titulo}</td>
-                <td>{book.autor}</td>
-                <td>
-                  <Link to={`/edit/${book._id}`} className="btn btn-warning">Editar</Link>
-                  <button onClick={() => handleDelete(book._id)} className="btn btn-danger ms-2">Deletar</button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="3" className="text-center">Nenhum livro encontrado</td>
+          {books.map((book) => (
+            <tr key={book._id}>
+              <td>{book._id}</td>
+              <td>{book.titulo}</td>
+              <td>{book.autor}</td>
+              <td className="text-center">
+                <Link to={`/edit-book/${book._id}`} className="btn btn-primary btn-sm mr-2">
+                  <i className="fas fa-edit"></i> Editar
+                </Link>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => deleteBook(book._id)}
+                >
+                  <i className="fas fa-trash-alt"></i> Deletar
+                </button>
+              </td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
-// Corrigido: Exportar como default
 export default BookList;
-
-
-// Exibe lista de livros 
