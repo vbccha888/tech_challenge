@@ -7,3 +7,45 @@ body {
     margin-top: 20px;
   }
   
+  /* Estilo da Seção Hero */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(135deg, #0b4c92, #6610f2); /* Gradiente moderno */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Texto branco por padrão */
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #00c1d4;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #007bff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
