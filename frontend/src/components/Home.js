@@ -21,5 +21,5 @@ function Home() {
     </div>
   );
 }
-
+//nova versao
 export default Home;
