@@ -36,6 +36,7 @@ function BookList() {
             <th>ID</th>
             <th>Título</th>
             <th>Autor</th>
+            <th>Editora</th>
             <th className="text-center">Ações</th>
           </tr>
         </thead>
@@ -45,6 +46,7 @@ function BookList() {
               <td>{book._id}</td>
               <td>{book.titulo}</td>
               <td>{book.autor}</td>
+              <td>{book.editora}</td>
               <td className="text-center">
                 <Link to={`/edit-book/${book._id}`} className="btn btn-primary btn-sm mr-2">
                   <i className="fas fa-edit"></i> Editar

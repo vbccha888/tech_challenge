@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import axios from '../services/api';
+import { Link } from 'react-router-dom';
 
 function BookForm() {
   const [titulo, setTitulo] = useState('');
   const [autor, setAutor] = useState('');
+  const [editora, setEditora] = useState('');
   const [message, setMessage] = useState(null);  // Para mensagens de sucesso ou erro
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/livros', { titulo, autor })
+    axios.post('/livros', { titulo, autor, editora })
       .then(() => {
         setMessage('Livro adicionado com sucesso!');
         setTitulo('');
         setAutor('');
+        setEditora('');
       })
       .catch((err) => {
         setMessage('Erro ao adicionar o livro: ' + err.message);
@@ -44,9 +47,32 @@ function BookForm() {
             placeholder="Digite o nome do autor"
           />
         </div>
-        <button type="submit" className="btn btn-success btn-block">
-          Adicionar
-        </button>
+        <div className="form-group">
+          <label>Editora</label>
+          <input
+            type="text"
+            className="form-control"
+            value={editora}
+            onChange={(e) => setEditora(e.target.value)}
+            placeholder="Digite o nome da editora"
+          />
+        </div>
+
+        <div class="row max-content">
+          <div class="col-4">
+            <Link to="/">
+              <button type="button" className="btn btn-danger btn-md">
+                Cancelar
+              </button>
+            </Link>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4 text-right">
+            <button type="submit" className="btn btn-success btn-md">
+              Adicionar
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
