@@ -3,7 +3,7 @@
 ## Link do Vídeo gravado Fase 02: https://youtu.be/0dBV_YGOpIs?si=91LVPiik0ouJRItB
 ## Link do Vídeo gravado Fase 03: https://youtu.be/huplEo8oFiI?si=NVziCGozVMg4LsJ9
 
--------------------------- FASE 02 --------------------------------------
+## FASE 02 --------------------------------------
 ## Link para documentação do postman: https://documenter.getpostman.com/view/11643776/2sA3kXCzpF
 
 ## Objetivo
@@ -87,7 +87,7 @@ DELETE - localhost:3000/livros/(adicione o ID do livro)
 Documentação Postman:https://documenter.getpostman.com/view/11643776/2sA3kXCzpF
 
 
--------------------------- FASE 03 --------------------------------------
+## FASE 03 --------------------------------------
 
 ## Objetivo
 Frontend desenvolvido para aplicação e gerenciamento de livros. Criação de interface de usuário funcional e simples que comunique com Backend desenvolvido na Fase 02 
