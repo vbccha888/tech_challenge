@@ -18,6 +18,7 @@ O projeto consistiu em desenvolver um CRUD utilizando as tecnologias Node.js + E
 - MongoDB - Banco de dados
 - Atlas - Banco na nuvem
 - dotenv
+- CORS - Permite requisições de diferentes origens (comunicação com o frontend)
 
 ## Iniciar Projeto
 
@@ -68,21 +69,21 @@ npm install dotenv
 
 # Manipulação de dados
 
-A porta utilizada no código é a 3000. 
+A porta utilizada no código é a 5000. #porta alterada durante o projeto da 3 fase
 
 No terminal do vs code, inicie o servidor atraves do comando: node run server.js - A mensagem "servidor on" e "conexão com o banco feita com sucesso" deve aparecer como resultado do comando.  
 
 Com tudo instalado e com as pastas do código fonte, o CRUD deve ser feito através das seguintes requisições no postman: 
 
-GET - localhost:3000/livros
+GET - localhost:5000/livros
 
-GET by ID - localhost:3000/livros/(adicione o ID do livro)
+GET by ID - localhost:5000/livros/(adicione o ID do livro)
 
-POST - localhost:3000/livros/
+POST - localhost:5000/livros/
 
-PUT - localhost:3000/livros/(adicione o ID do livro)
+PUT - localhost:5000/livros/(adicione o ID do livro)
 
-DELETE - localhost:3000/livros/(adicione o ID do livro)
+DELETE - localhost:5000/livros/(adicione o ID do livro)
 
 Documentação Postman:https://documenter.getpostman.com/view/11643776/2sA3kXCzpF
 
@@ -97,6 +98,7 @@ Frontend desenvolvido para aplicação e gerenciamento de livros. Criação de i
 - CSS
 - Bootstrap
 - React
+- Axios 
 
 ## Iniciar projeto
 
@@ -105,10 +107,13 @@ Certifique-se que tenha criado o arquivo .env
 No terminal do vs code, inicie a conexão com o servidor atraves do comando: npm start
 
 # 2º Passo
-Após conexão com sucesso, abra um novo termianl e acesse pasta do frontend com o comando:  cd frontend
+Após conexão com sucesso, abra um novo terminal e acesse pasta do frontend com o comando:  cd frontend
 E o execute utilizando o comando: npm start
 Abrirá um navegador local para interagir com a interface criada.
 
 # model .env
 No .env, incluir: 
 DB_CONNECTION_STRING=
+
+
+## Link do Vídeo gravado Fase 03: https://youtu.be/huplEo8oFiI?si=NVziCGozVMg4LsJ9
